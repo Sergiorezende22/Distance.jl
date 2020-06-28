@@ -1,5 +1,5 @@
 module Distance
 
-# Write your package code here.
+include("dist.jl")
 
 end
