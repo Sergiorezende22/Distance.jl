@@ -11,8 +11,6 @@ function GetDistance(dist::Dist, p1::AbstractArray{Number}, p2::AbstractArray{Nu
     return calculate(dist, p1, p2)
 end
 
-
-
 struct Euclidean <: Dist end
 calculate(::Euclidean, p1::AbstractArray, p2::AbstractArray) = sqrt(sum((p1 - p2) .^ 2))
 
@@ -32,19 +30,10 @@ struct BrayCurtis <: Dist end
 calculate(::BrayCurtis, p1::AbstractArray, p2::AbstractArray) = sum(abs(p1 - p2)) / sum(abs(p1 + p2))
 
 struct CosineDist <: Dist end
-
-struct CorrDist <: Dist end
+calculate(::CosineDist, p1::AbstractArray, p2::AbstractArray) = 1 - dot(p1, p2) / (norm(p1) * norm(p2))
 
 struct ChiSqDist <: Dist end
-
-struct GenKLDivergence <: Dist end
+calculate(::ChiSqDist, p1::AbstractArray, p2::AbstractArray) = sum((p1 - p2).^2 / (p1 + p2))
 
 struct SpanNormDist <: Dist end
-
-struct MeanAbsDeviation <: Dist end
-
-struct MeanSqDeviation <: Dist end
-
-struct RMSDeviation <: Dist end
-
-struct NormRMSDeviation <: Dist end
+calculate(::SpanNormDist, p1::AbstractArray, p2::AbstractArray) = max(p1 - p2) - min(p1 - p2)
