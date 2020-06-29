@@ -1,6 +1,6 @@
 abstract type Dist end
 
-function GetDistance(dist::Dist, p1::AbstractArray{Number}, p2::AbstractArray{Number})
+function GetDistance(dist::Dist, p1::AbstractArray, p2::AbstractArray)
     if length(p1) != length(p2)
         error("Arrays with different dimensions, first array: $(length(p1)) != second array: $(length(p2)).")
     end

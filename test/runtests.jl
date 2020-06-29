@@ -2,19 +2,18 @@ using Distance
 using Test
 
 @testset "Distance.jl" begin
-    #=
-    x = [2,2]
-    y = [2,4]
-    @test calculate(Euclidean(), x, y) == 2
 
-    @test calculate(CityBlock(), 2, 1) ==
-    @test calculate(TotalVariation(), 2, 1) ==
-    @test calculate(Chebyshev(), 2, 1) ==
-    @test calculate(Jaccard(), 2, 1) ==
-    @test calculate(BrayCurtis(), 2, 1) ==
-    @test calculate(CosineDist(), 2, 1) ==
-    @test calculate(ChiSqDist(), 2, 1) ==
-    @test calculate(SpanNormDist(), 2, 1) ==
+
+    @test GetDistance(Euclidean(), [2,2], [2,4]) == 2
+#=
+    @test GetDistance(CityBlock(), 2, 1) ==
+    @test GetDistance(TotalVariation(), 2, 1) ==
+    @test GetDistance(Chebyshev(), 2, 1) ==
+    @test GetDistance(Jaccard(), 2, 1) ==
+    @test GetDistance(BrayCurtis(), 2, 1) ==
+    @test GetDistance(CosineDist(), 2, 1) ==
+    @test GetDistance(ChiSqDist(), 2, 1) ==
+    @test GetDistance(SpanNormDist(), 2, 1) ==
 =#
 
 
