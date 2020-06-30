@@ -15,7 +15,5 @@ export
     Jaccard,
     BrayCurtis,
     CosineDist,
-    ChiSqDist,
     SpanNormDist
-
 end
