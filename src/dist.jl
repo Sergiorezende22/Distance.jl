@@ -1,4 +1,3 @@
-include("math.jl")
 abstract type Dist end
 
 #=
@@ -26,15 +25,15 @@ calculate(::Euclidean, p1::AbstractArray, p2::AbstractArray) = sqrt(sum((p1 - p2
 
 #   Distancia City Block ou Manhattan
 struct CityBlock <: Dist end
-calculate(::CityBlock, p1::AbstractArray, p2::AbstractArray) = sum(absolute(p1 - p2))
+calculate(::CityBlock, p1::AbstractArray, p2::AbstractArray) = sum(broadcast(abs, p1 - p2))
 
 #   Distancia Total Variation
 struct TotalVariation <: Dist end
-calculate(::TotalVariation, p1::AbstractArray, p2::AbstractArray) = sum(absolute(p1 - p2)) / 2
+calculate(::TotalVariation, p1::AbstractArray, p2::AbstractArray) = sum(broadcast(abs, p1 - p2)) / 2
 
 #   Distancia Chebyshev
 struct Chebyshev <: Dist end
-calculate(::Chebyshev, p1::AbstractArray, p2::AbstractArray) = maxArray(absolute(p1-p2))
+calculate(::Chebyshev, p1::AbstractArray, p2::AbstractArray) = maximum(broadcast(abs, p1-p2))
 
 #   Distancia Jaccard
 struct Jaccard <: Dist end
@@ -42,7 +41,7 @@ calculate(::Jaccard, p1::AbstractArray, p2::AbstractArray) = 1 - sum(min(p1, p2)
 
 #   Distancia BrayCurtis
 struct BrayCurtis <: Dist end
-calculate(::BrayCurtis, p1::AbstractArray, p2::AbstractArray) = sum(absolute(p1 - p2)) / sum(absolute(p1 + p2))
+calculate(::BrayCurtis, p1::AbstractArray, p2::AbstractArray) = sum(broadcast(abs, p1 - p2)) / sum(broadcast(abs, p1 + p2))
 
 #   Distancia Cosseno
 struct CosineDist <: Dist end
@@ -50,4 +49,4 @@ calculate(::CosineDist, p1::AbstractArray, p2::AbstractArray) = 1 - sum(p1 .* p2
 
 #   Distancia Span-norm
 struct SpanNormDist <: Dist end
-calculate(::SpanNormDist, p1::AbstractArray, p2::AbstractArray) = maxArray(p1 - p2) - minArray(p1 - p2)
+calculate(::SpanNormDist, p1::AbstractArray, p2::AbstractArray) = maximum(p1 - p2) - minimum(p1 - p2)
