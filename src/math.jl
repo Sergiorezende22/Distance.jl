@@ -3,7 +3,7 @@ function absolute(p1::AbstractArray)
         p1[x] = abs(p1[x])
     end
     return p1
-end # function
+end # Função que faz devolve os valores absolutos do vetor
 
 function maxArray(p1::AbstractArray)
     temp = p1[1]
@@ -13,7 +13,7 @@ function maxArray(p1::AbstractArray)
         end
     end
     return temp
-end
+end # Função que devolve o maior numero de um array
 
 function minArray(p1::AbstractArray)
     temp = p1[1]
@@ -23,4 +23,4 @@ function minArray(p1::AbstractArray)
         end
     end
     return temp
-end
+end # Função que devolve o menor numero de um array 
