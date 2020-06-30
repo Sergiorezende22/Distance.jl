@@ -3,10 +3,10 @@ abstract type Dist end
 
 function GetDistance(dist::Dist, p1::AbstractArray, p2::AbstractArray)
     if length(p1) != length(p2)
-        error("Arrays with different dimensions, first array: $(length(p1)) != second array: $(length(p2)).")
+        throw(DimensionMismatch("Arrays with different dimensions, first array: $(length(p1)) != second array: $(length(p2))."))
     end
-    if length(p1) == 0 || length(p2) == 0
-        error("Can not calculate distance between arrays with zero dimension")
+    if length(p1) == 0
+        throw(DimensionMismatch("Can not calculate distance for empty arrays"))
     end
 
     return calculate(dist, p1, p2)
