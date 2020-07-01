@@ -1,8 +1,8 @@
 # Distance.jl
 
+[![][docs-v1-img]](https://sergiorezende22.github.io/Distance.jl/.)
 [![Build Status](https://travis-ci.com/Sergiorezende22/Distance.jl.svg?branch=master)](https://travis-ci.com/Sergiorezende22/Distance.jl)
 [![Coverage](https://codecov.io/gh/Sergiorezende22/Distance.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/Sergiorezende22/Distance.jl)
-
 ## Introduction
   This is a test package for calculating distances between two points. It works with 8 different types of distances, they are:
 
@@ -41,3 +41,6 @@
 | BrayCurtis     |
 | CosineDist     |
 | SpanNormDist   |
+
+
+[docs-v1-img]: https://img.shields.io/badge/docs-v1-blue.svg
