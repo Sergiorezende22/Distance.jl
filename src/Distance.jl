@@ -15,5 +15,4 @@ export
     BrayCurtis,
     CosineDist,
     SpanNormDist
-
 end
